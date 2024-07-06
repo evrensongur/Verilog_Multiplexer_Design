@@ -25,10 +25,7 @@ input i0_i;
 input i1_i;
 input sel_i;
 output out_o;
-wire not0,and0,and1;
-not G1(not0,sel_i);
-and G2(and0,not0,i0_i);
-and G3(and1,sel_i,i1_i);
-or  G4(out_o,and1,and0);
+
+assign out_o= (sel_i==1'b0) ? i0_i : i1_i;
 
 endmodule
