@@ -24,8 +24,15 @@ module Mux_2x1(i0_i,i1_i,sel_i,out_o);
 input i0_i;
 input i1_i;
 input sel_i;
-output out_o;
-
-assign out_o= (sel_i==1'b0) ? i0_i : i1_i;
-
+output  out_o;
+reg out;
+always @* begin 
+       if (sel_i==1'b0) begin
+         out= i0_i ;
+       end
+       else begin
+          out=i1_i;
+       end 
+end 
+   assign  out_o=out;
 endmodule
